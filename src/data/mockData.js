@@ -240,84 +240,6 @@ export const MOCK_JOBS = [
       "Shift allowances & overtime bonus."
     ],
     aboutCompany: "SecureNet Defense is a global cybersecurity consulting firm safeguarding Fortune 500 infrastructure."
-  },
-  {
-    id: 7,
-    title: "Full Stack Engineer Intern",
-    company: "WebCraft Solutions",
-    logoColor: "from-rose-500 to-pink-600",
-    logoInitial: "WS",
-    location: "Remote",
-    type: "Internship",
-    workMode: "Remote",
-    experience: "Internship",
-    salary: "₹40,000 / month",
-    skills: ["Node.js", "React", "Express", "PostgreSQL", "Docker"],
-    postedDate: "3 days ago",
-    deadline: "Nov 08, 2026",
-    department: "Engineering",
-    featured: false,
-    description: "WebCraft Solutions builds high-scale web platforms. We are offering a 6-month Full Stack internship with hands-on exposure to Node.js backend microservices and React frontends.",
-    responsibilities: [
-      "Write clean, modular backend API endpoints in Express / Node.js.",
-      "Build pixel-perfect UI screens in React.",
-      "Write unit tests and setup CI/CD pipelines.",
-      "Debug live server performance issues."
-    ],
-    requiredSkills: [
-      "Good grasp of JavaScript/TypeScript across both client and server.",
-      "Experience with relational databases like PostgreSQL or MySQL.",
-      "Git skills and basic Linux CLI knowledge."
-    ],
-    eligibility: [
-      "B.Tech/MCA 2026/2027 batch.",
-      "Strong GitHub portfolio showing full-stack projects."
-    ],
-    benefits: [
-      "PPO offer potential up to ₹16 LPA.",
-      "Remote work stipend.",
-      "Weekly team learning sessions."
-    ],
-    aboutCompany: "WebCraft Solutions is a product studio creating high-traffic SaaS applications for e-commerce brands."
-  },
-  {
-    id: 8,
-    title: "DevOps & Cloud Engineer",
-    company: "InfrastructureAI",
-    logoColor: "from-sky-600 to-blue-800",
-    logoInitial: "IA",
-    location: "Bangalore, India",
-    type: "Full-time",
-    workMode: "Hybrid",
-    experience: "Entry Level",
-    salary: "₹13 - ₹17 LPA",
-    skills: ["AWS", "Docker", "Kubernetes", "Terraform", "CI/CD"],
-    postedDate: "6 days ago",
-    deadline: "Nov 10, 2026",
-    department: "Engineering",
-    featured: false,
-    description: "Automate and scale cloud systems with InfrastructureAI. We are looking for entry-level DevOps Engineers eager to build cloud architecture using AWS, Kubernetes, and Terraform.",
-    responsibilities: [
-      "Manage cloud infrastructure on AWS using Terraform (IaC).",
-      "Setup automated CI/CD build pipelines using GitHub Actions.",
-      "Monitor cluster health with Prometheus and Grafana.",
-      "Optimize cloud infrastructure cost and reliability."
-    ],
-    requiredSkills: [
-      "Familiarity with AWS core services (EC2, S3, RDS, EKS).",
-      "Containerization using Docker and Kubernetes basics.",
-      "Shell scripting (Bash) or Python scripting."
-    ],
-    eligibility: [
-      "B.Tech in CS/IT/ECE 2026/2027 Batch.",
-      "AWS Certified Cloud Practitioner or Solutions Architect Associate is a plus."
-    ],
-    benefits: [
-      "Generous hardware kit.",
-      "Unlimited leave policy.",
-      "Health & dental plan."
-    ],
-    aboutCompany: "InfrastructureAI simplifies cloud deployments for enterprise scale workloads."
   }
 ];
 
@@ -329,6 +251,9 @@ export const MOCK_APPLICATIONS = [
     logoColor: "from-indigo-600 to-purple-600",
     logoInitial: "CS",
     role: "Software Developer (Frontend)",
+    studentName: "Aarav Sharma",
+    studentEmail: "aarav.sharma@college.edu",
+    cgpa: "8.85 / 10.0",
     appliedDate: "Oct 01, 2026",
     status: "Shortlisted",
     location: "Hyderabad, India",
@@ -348,6 +273,9 @@ export const MOCK_APPLICATIONS = [
     logoColor: "from-emerald-600 to-teal-600",
     logoInitial: "FM",
     role: "Data Analyst",
+    studentName: "Ananya Roy",
+    studentEmail: "ananya.roy@college.edu",
+    cgpa: "9.10 / 10.0",
     appliedDate: "Sep 28, 2026",
     status: "Interview Scheduled",
     location: "Mumbai, India",
@@ -367,6 +295,9 @@ export const MOCK_APPLICATIONS = [
     logoColor: "from-blue-600 to-indigo-600",
     logoInitial: "TC",
     role: "UI/UX Designer",
+    studentName: "Aarav Sharma",
+    studentEmail: "aarav.sharma@college.edu",
+    cgpa: "8.85 / 10.0",
     appliedDate: "Oct 04, 2026",
     status: "Under Review",
     location: "Bangalore, India",
@@ -386,6 +317,9 @@ export const MOCK_APPLICATIONS = [
     logoColor: "from-purple-600 to-pink-600",
     logoInitial: "NL",
     role: "AI/ML Intern",
+    studentName: "Rohan Verma",
+    studentEmail: "rohan.v@college.edu",
+    cgpa: "8.40 / 10.0",
     appliedDate: "Oct 07, 2026",
     status: "Applied",
     location: "Bangalore / Remote",
@@ -397,25 +331,39 @@ export const MOCK_APPLICATIONS = [
       { step: "Interview Scheduled", date: "Pending", completed: false, details: "Technical AI interview." },
       { step: "Final Decision", date: "Pending", completed: false, details: "Offer notification." }
     ]
+  }
+];
+
+export const MOCK_CALENDAR_EVENTS = [
+  {
+    id: 1,
+    title: "CloudScale Pre-Placement Talk (PPT)",
+    company: "CloudScale Systems",
+    date: "Oct 12, 2026",
+    time: "10:00 AM - 11:30 AM",
+    venue: "Main Auditorium / Zoom",
+    type: "Pre-Placement Talk",
+    color: "bg-indigo-50 border-indigo-200 text-indigo-800"
   },
   {
-    id: "APP-105",
-    jobId: 6,
-    company: "SecureNet Defense",
-    logoColor: "from-cyan-600 to-blue-700",
-    logoInitial: "SN",
-    role: "CyberSecurity Analyst",
-    appliedDate: "Sep 15, 2026",
-    status: "Selected",
-    location: "Pune, India",
-    salary: "₹12 - ₹16 LPA",
-    timeline: [
-      { step: "Applied", date: "Sep 15, 2026", completed: true, details: "Submitted via Placement Portal." },
-      { step: "Under Review", date: "Sep 18, 2026", completed: true, details: "Cybersecurity assessment cleared." },
-      { step: "Shortlisted", date: "Sep 22, 2026", completed: true, details: "Shortlisted out of 340 applicants." },
-      { step: "Interview Scheduled", date: "Sep 27, 2026", completed: true, details: "Technical & HR rounds completed." },
-      { step: "Final Decision", date: "Oct 02, 2026", completed: true, details: "Selected! Offer letter dispatched via email." }
-    ]
+    id: 2,
+    title: "FinMetrics Online Coding Assessment",
+    company: "FinMetrics Analytics",
+    date: "Oct 14, 2026",
+    time: "02:00 PM - 04:00 PM",
+    venue: "Computer Center Lab 3",
+    type: "Online Test",
+    color: "bg-emerald-50 border-emerald-200 text-emerald-800"
+  },
+  {
+    id: 3,
+    title: "TechCorp UI/UX Portfolio Presentations",
+    company: "TechCorp Global",
+    date: "Oct 18, 2026",
+    time: "11:00 AM Onwards",
+    venue: "Placement Cell Room B",
+    type: "Interview Round",
+    color: "bg-purple-50 border-purple-200 text-purple-800"
   }
 ];
 
@@ -431,15 +379,15 @@ export const INITIAL_STUDENT_PROFILE = {
   completionPercentage: 85,
   bio: "Passionate 3rd-year CS undergrad interested in full-stack engineering, cloud architecture, and UI/UX design. Active open-source contributor and placement representative.",
   skills: [
-    "React.js",
-    "JavaScript (ES6+)",
+    "React",
+    "JavaScript",
     "TypeScript",
     "Tailwind CSS",
     "Node.js",
     "Python",
-    "SQL / PostgreSQL",
+    "SQL",
     "Figma",
-    "Git & GitHub",
+    "Git",
     "REST APIs"
   ],
   education: [
@@ -461,13 +409,13 @@ export const INITIAL_STUDENT_PROFILE = {
       title: "DevFlow - Community QA Platform",
       tech: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
       description: "Full-stack developer platform featuring real-time markdown questions, voting, and code snippet highlighting.",
-      link: "https://github.com/aarav/devflow"
+      link: "github.com/aarav/devflow"
     },
     {
       title: "Placement Tracker Dashboard",
       tech: ["React", "Python", "FastAPI"],
       description: "Analytical portal that summarizes campus recruitment stats, student application timelines, and company eligibility.",
-      link: "https://github.com/aarav/placement-tracker"
+      link: "github.com/aarav/placement-tracker"
     }
   ],
   certifications: [

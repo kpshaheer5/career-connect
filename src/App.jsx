@@ -10,6 +10,7 @@ import JobDetailsPage from './pages/JobDetailsPage';
 import ApplicationsDashboard from './pages/ApplicationsDashboard';
 import StudentProfilePage from './pages/StudentProfilePage';
 import AboutPage from './pages/AboutPage';
+import OfficerDashboard from './pages/OfficerDashboard';
 
 // Modals
 import ApplyConfirmModal from './components/ApplyConfirmModal';
@@ -17,6 +18,7 @@ import ApplicationDetailModal from './components/ApplicationDetailModal';
 import AuthModal from './components/AuthModal';
 import EditProfileModal from './components/EditProfileModal';
 import ResumeModal from './components/ResumeModal';
+import PostJobModal from './components/PostJobModal';
 
 // Initial Mock Data
 import { MOCK_JOBS, MOCK_APPLICATIONS, INITIAL_STUDENT_PROFILE } from './data/mockData';
@@ -25,6 +27,7 @@ export default function App() {
   // Navigation & View state
   const [activeTab, setActiveTab] = useState('home');
   const [selectedJob, setSelectedJob] = useState(null);
+  const [userRole, setUserRole] = useState('student'); // 'student' | 'officer'
   
   // Data state
   const [jobs, setJobs] = useState(MOCK_JOBS);
@@ -47,6 +50,7 @@ export default function App() {
   const [selectedAppDetail, setSelectedAppDetail] = useState(null);
   const [editProfileModalOpen, setEditProfileModalOpen] = useState(false);
   const [resumeModalOpen, setResumeModalOpen] = useState(false);
+  const [postJobModalOpen, setPostJobModalOpen] = useState(false);
 
   // Helper function to trigger Toast
   const showToast = (message, type = 'success') => {
@@ -89,6 +93,9 @@ export default function App() {
       logoColor: job.logoColor,
       logoInitial: job.logoInitial,
       role: job.title,
+      studentName: currentUser.name,
+      studentEmail: currentUser.email,
+      cgpa: currentUser.cgpa,
       appliedDate: todayStr,
       status: 'Applied',
       location: job.location,
@@ -104,6 +111,31 @@ export default function App() {
 
     setApplications([newApplication, ...applications]);
     showToast(`Application submitted successfully for ${job.title} at ${job.company}!`, 'success');
+  };
+
+  // Update Application Status (Placement Officer action)
+  const handleUpdateAppStatus = (appId, newStatus) => {
+    setApplications(applications.map(app => {
+      if (app.id === appId) {
+        // Update timeline status
+        const updatedTimeline = app.timeline ? app.timeline.map(st => {
+          if (st.step === newStatus) {
+            return { ...st, completed: true, active: true, date: 'Oct 08, 2026' };
+          }
+          return st;
+        }) : [];
+
+        return { ...app, status: newStatus, timeline: updatedTimeline };
+      }
+      return app;
+    }));
+    showToast(`Updated status to "${newStatus}" for application ${appId}`, 'info');
+  };
+
+  // Add New Job (Placement Officer action)
+  const handleAddJob = (newJob) => {
+    setJobs([newJob, ...jobs]);
+    showToast(`Published new drive: ${newJob.title} at ${newJob.company}!`, 'success');
   };
 
   // Withdraw Application
@@ -174,6 +206,8 @@ export default function App() {
         isLoggedIn={isLoggedIn}
         setIsLoggedIn={setIsLoggedIn}
         onOpenAuthModal={handleOpenAuthModal}
+        userRole={userRole}
+        setUserRole={setUserRole}
       />
 
       {/* Main Content View Switcher */}
@@ -240,6 +274,15 @@ export default function App() {
           />
         )}
 
+        {activeTab === 'officer-dashboard' && (
+          <OfficerDashboard
+            applications={applications}
+            jobs={jobs}
+            onUpdateAppStatus={handleUpdateAppStatus}
+            onOpenPostJobModal={() => setPostJobModalOpen(true)}
+          />
+        )}
+
       </main>
 
       {/* Footer */}
@@ -285,6 +328,12 @@ export default function App() {
         isOpen={resumeModalOpen}
         onClose={() => setResumeModalOpen(false)}
         onUploadNewResume={handleUploadResume}
+      />
+
+      <PostJobModal
+        isOpen={postJobModalOpen}
+        onClose={() => setPostJobModalOpen(false)}
+        onAddJob={handleAddJob}
       />
 
     </div>
